@@ -1,0 +1,91 @@
+.create_contanier {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 18rem ;
+  width: 80%;
+  max-width: 800px;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.create_contanier h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.create_contanier p {
+  font-size: 16px;
+  color: red;
+  margin-bottom: 20px;
+}
+
+.create_contanier form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.create_contanier label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 48%;
+}
+
+.create_contanier input[type="text"],
+.create_contanier input[type="email"],
+.create_contanier input[type="url"],
+.create_contanier textarea
+ {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.create_contanier input[type="text"]:focus,
+.create_contanier input[type="email"]:focus,
+.create_contanier input[type="url"]:focus,
+
+.create_contanier textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.create_contanier input::placeholder,
+
+.create_contanier textarea::placeholder {
+  color: #999;
+}
+
+.create_contanier input[type="submit"],
+.create_contanier button
+ {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #0077c0;
+  border: 1px solid #0077c0;
+   border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.create_contanier input[type="submit"]:hover,
+.create_contanier button:hover
+ {
+  background-color: #005ca9;
+  border-color: #005ca9;
+}

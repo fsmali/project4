@@ -1,0 +1,16 @@
+.dev_page {
+  min-height: 100vh;
+  // background-color: #f2f2f2;
+  margin-top: 1rem;
+
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  list-style-type: none;
+  padding: 2rem;
+}
+
