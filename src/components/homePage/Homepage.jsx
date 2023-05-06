@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { DEV_ENDPOINT_URL } from '../../consts';
+import { API_URL } from '../../consts';
 import '../homePage/homepage.scss';
 import DeveloperPage from '../developers/developers';
 import { Link } from 'react-router-dom';
@@ -11,7 +11,7 @@ const HomePage = () => {
 
   useEffect(() => {
     const fethcData = async () => {
-      const { data } = await axios.get(`${DEV_ENDPOINT_URL}developers/`);
+      const { data } = await axios.get(`${API_URL}developers/`);
       console.log(data);
       formData(data);
     };

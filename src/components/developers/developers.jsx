@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import DevCard from './devCard';
 import '../developers/developers.scss';
-import { DEV_ENDPOINT_URL } from '../../consts';
+import { API_URL } from '../../consts';
 
 const DeveloperPage = () => {
   const [dev, setDev] = useState([]);
@@ -11,7 +11,7 @@ const DeveloperPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get(`${DEV_ENDPOINT_URL}/developers`);
+      const { data } = await axios.get(`${API_URL}/developers`);
       setIsLoading(false);
       setDev(data);
     };

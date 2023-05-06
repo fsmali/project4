@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState } from "react"
-import { DEV_ENDPOINT_URL } from "../../consts";
+import { API_URL } from "../../consts";
 
 const CreateDeveloper=()=>{
 const [showError, setShowError] = useState(false);
@@ -71,6 +71,7 @@ console.log({ token });
 };
 
 return (
+
 <div className="view">
 <h1>Create developer Page</h1>
 

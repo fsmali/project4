@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import '../register/register.scss';
-import { DEV_ENDPOINT_URL } from '../../consts';
+import { API_URL } from '../../consts';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 

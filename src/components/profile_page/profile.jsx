@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import '../profile_page/profile.scss';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { DEV_ENDPOINT_URL } from '../../consts';
+import { API_URL } from '../../consts';
 
 const ProfilePage = () => {
   const { id } = useParams();
@@ -57,7 +57,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get(`${DEV_ENDPOINT_URL}developers/${id}/`);
+      const { data } = await axios.get(`${API_URL}developers/${id}/`);
       setProfile(data);
       // console.log(data);
       setCreateDev(data);
@@ -74,7 +74,7 @@ const ProfilePage = () => {
       console.log('this is for data skill', res.data);
       setConfirmMessage(res.data.message);
 
-      const { data } = await axios.get(`${DEV_ENDPOINT_URL}developers/${id}/`);
+      const { data } = await axios.get(`${API_URL}developers/${id}/`);
 
       setProfile(data);
     } catch (err) {
@@ -100,7 +100,7 @@ const ProfilePage = () => {
         }
       );
       setConfirmMessage(res.data.message);
-      const { data } = await axios.get(`${DEV_ENDPOINT_URL}developers/${id}/`);
+      const { data } = await axios.get(`${API_URL}developers/${id}/`);
       setProfile(data);
     } catch (err) {
       setError(err.response.data.message);
@@ -125,12 +125,12 @@ const ProfilePage = () => {
 
   const addComment = async (Id) => {
     try {
-      const data1 = await axios.post(`${DEV_ENDPOINT_URL}comments/`, {
+      const data1 = await axios.post(`${API_URL}comments/`, {
         text: comment,
         developer: id,
       });
       setConfirmMessage(data1.data.message);
-      const { data } = await axios.get(`${DEV_ENDPOINT_URL}developers/${Id}/`);
+      const { data } = await axios.get(`${API_URL}developers/${Id}/`);
       console.log('this is data for comment', data);
       setComment('');
       setProfile(data);
@@ -158,7 +158,7 @@ const ProfilePage = () => {
     try {
       console.log('this is createdev', createDev);
       const { data } = await axios.put(
-        `${DEV_ENDPOINT_URL}/developers/${id}/`,
+        `${API_URL}/developers/${id}/`,
         { ...createDev, skill: createDev.skill.map((i) => i.id) },
         { ...createDev, description: createDev.project.map((i) => i.id) },
         { ...createDev, project_name: createDev.project.map((i) => i.id) },

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { DEV_ENDPOINT_URL } from '../../consts';
+import { API_URL } from '../../consts';
 import { useParams } from 'react-router-dom';
 import '../create_developer/create_developer.scss';
 
@@ -39,7 +39,7 @@ const CreateDeveloper = () => {
 
   useEffect(() => {
     const fetchSkills = async () => {
-      const { data } = await axios.get(`${DEV_ENDPOINT_URL}skills/`);
+      const { data } = await axios.get(`${API_URL}skills/`);
       setSkills(data); //This line is updating the state variable skills with the fetched data.
       console.log(data);
     };
@@ -67,7 +67,7 @@ const CreateDeveloper = () => {
 
   useEffect(() => {
     const fetchProjects = async () => {
-      const { data } = await axios.get(`${DEV_ENDPOINT_URL}projects/`);
+      const { data } = await axios.get(`${API_URL}projects/`);
       setProjectsName(data);
       console.log(data);
     };
@@ -143,7 +143,7 @@ const CreateDeveloper = () => {
     };
     try {
       const { data } = await axios.post(
-        `${DEV_ENDPOINT_URL}developers/`,
+        `${API_URL}developers/`,
         createDev,
         requestConfing
       );
