@@ -1,38 +1,34 @@
 import axios from "axios"
 import { useState } from "react"
-import { DEV_ENDPOINT_URL } from "../../url";
-
-
+import { DEV_ENDPOINT_URL } from "../../consts";
 
 const CreateDeveloper=()=>{
-   const [showError, setShowError] = useState(false);
-  const [createDev, setCreateDev] = useState({
-    title: '',
-    first_name: '',
-    last_name: '',
-    email: '',
-    based_in: '',
-    country: '',
-    img: '',
-    facebook: '',
-    instagram: '',
-    git_hub: '',
-    linkden: '',
-    info: '',
-  });
+const [showError, setShowError] = useState(false);
+const [createDev, setCreateDev] = useState({
+title: '',
+first_name: '',
+last_name: '',
+email: '',
+based_in: '',
+country: '',
+img: '',
+facebook: '',
+instagram: '',
+git_hub: '',
+linkden: '',
+info: '',
+});
 
- 
- 
-  const onChange = (e) => {
-    let skillArray = [];
-    let projectArray = [];
-    if (e.target.name === 'project_url') {
-      projectArray.push(parseInt(e.target.value));
-    }
-    if (e.target.name === 'skill') {
-      skillArray.push(parseInt(e.target.value));
-      console.log(skillArray);
-    }
+const onChange = (e) => {
+let skillArray = [];
+let projectArray = [];
+if (e.target.name === 'project_url') {
+projectArray.push(parseInt(e.target.value));
+}
+if (e.target.name === 'skill') {
+skillArray.push(parseInt(e.target.value));
+console.log(skillArray);
+}
 
     setCreateDev({
       ...createDev,
@@ -45,15 +41,16 @@ const CreateDeveloper=()=>{
           : e.target.value,
     });
     console.log(createDev);
-  };
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    console.log('submit button click');
-    const token = localStorage.getItem('token');
-    const requestConfing = {
-      headers: { authorization: `Bearer ${token}` },
-    };
-    console.log({ token });
+
+};
+const onSubmit = async (e) => {
+e.preventDefault();
+console.log('submit button click');
+const token = localStorage.getItem('token');
+const requestConfing = {
+headers: { authorization: `Bearer ${token}` },
+};
+console.log({ token });
 
     try {
       // console.log('request body ', createDev);
@@ -70,11 +67,12 @@ const CreateDeveloper=()=>{
       console.log(e);
       setShowError(true);
     }
-  };
 
-  return (
-    <div className="view">
-      <h1>Create developer Page</h1>
+};
+
+return (
+<div className="view">
+<h1>Create developer Page</h1>
 
       {showError && <div className="error">Something Went Wrong.</div>}
       <form className="register_page" onSubmit={onSubmit}>
@@ -143,7 +141,7 @@ const CreateDeveloper=()=>{
           name="git_hub"
           value={createDev.git_hub}
           onChange={onChange}
-        /> 
+        />
          <input
           type="text"
           placeholder="Linkden*"
@@ -177,7 +175,7 @@ const CreateDeveloper=()=>{
             <option value="2">React-Node.js Projetc</option>
             <option value="3">Mongo-React Project</option>
             <option value="4">d-jango-React Project</option>
-          </select> 
+          </select>
          <button className="register_button" type="submit">
           Submit Developer
         </button>
@@ -186,6 +184,7 @@ const CreateDeveloper=()=>{
         <br />
       </form>
     </div>
-  );
-    }
+
+);
+}
 export default CreateDeveloper

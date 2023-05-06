@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import DevCard from './devCard';
 import '../developers/developers.scss';
-import { DEV_ENDPOINT_URL } from '../../url';
+import { DEV_ENDPOINT_URL } from '../../consts';
 
 const DeveloperPage = () => {
   const [dev, setDev] = useState([]);
@@ -27,8 +27,6 @@ const DeveloperPage = () => {
 
   return (
     <>
-
-
       <div className="searchBar">
         <input
           className="searchBar"

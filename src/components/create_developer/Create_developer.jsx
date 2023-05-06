@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { DEV_ENDPOINT_URL } from '../../url';
+import { DEV_ENDPOINT_URL } from '../../consts';
 import { useParams } from 'react-router-dom';
 import '../create_developer/create_developer.scss';
 

@@ -2,11 +2,10 @@ import { useEffect, useState } from 'react';
 import '../profile_page/profile.scss';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { DEV_ENDPOINT_URL } from '../../url';
+import { DEV_ENDPOINT_URL } from '../../consts';
 
 const ProfilePage = () => {
   const { id } = useParams();
-
 
   const [comment, setComment] = useState('');
 
@@ -19,14 +18,10 @@ const ProfilePage = () => {
   const [skills, setSkills] = useState([]);
   const [skillsid, setSkillsid] = useState([]);
 
-  const [projects, setProjects] =useState ([]);
+  const [projects, setProjects] = useState([]);
   const [projectsId, setProjectsId] = useState([]);
- const [description, setDescription] = useState([]);
+  const [description, setDescription] = useState([]);
   const [source, setSource] = useState([]);
- 
- 
-
-  
 
   const [isInEditMode, setIsInEditMode] = useState({
     title: false,
@@ -59,7 +54,7 @@ const ProfilePage = () => {
     linkden: '',
     info: '',
   });
-    
+
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(`${DEV_ENDPOINT_URL}developers/${id}/`);
@@ -94,39 +89,39 @@ const ProfilePage = () => {
     setSkills(e.target.value);
     setSkillsid(e.target.id);
   };
-   const editProject = async () => {
-     try {
-       const res = await axios.put(
-         `http://localhost:8000/projects/${projectsId}/`,
-         {
-           project_name: projects,
-           description: description,
-           source_link: source,
-         }
-       );
-       setConfirmMessage(res.data.message)
-       const { data } = await axios.get(`${DEV_ENDPOINT_URL}developers/${id}/`)
-       setProfile(data);
-     } catch (err) {
-       setError(err.response.data.message);
-       setTimeout(() => {
-         setError('');
-       }, 3000);
-     }
-   };
+  const editProject = async () => {
+    try {
+      const res = await axios.put(
+        `http://localhost:8000/projects/${projectsId}/`,
+        {
+          project_name: projects,
+          description: description,
+          source_link: source,
+        }
+      );
+      setConfirmMessage(res.data.message);
+      const { data } = await axios.get(`${DEV_ENDPOINT_URL}developers/${id}/`);
+      setProfile(data);
+    } catch (err) {
+      setError(err.response.data.message);
+      setTimeout(() => {
+        setError('');
+      }, 3000);
+    }
+  };
 
-   const onProjectHandler = (e) => {
-     setProjects(e.target.value);
-     setProjectsId(e.target.id);
-   };
-    const onDescriptionHandler = (e) => {
-      setDescription(e.target.value);
-      setProjectsId(e.target.id);
-    };
-     const onSourceHandler = (e) => {
-       setSource(e.target.value);
-       setProjectsId(e.target.id);
-     };
+  const onProjectHandler = (e) => {
+    setProjects(e.target.value);
+    setProjectsId(e.target.id);
+  };
+  const onDescriptionHandler = (e) => {
+    setDescription(e.target.value);
+    setProjectsId(e.target.id);
+  };
+  const onSourceHandler = (e) => {
+    setSource(e.target.value);
+    setProjectsId(e.target.id);
+  };
 
   const addComment = async (Id) => {
     try {
@@ -172,7 +167,7 @@ const ProfilePage = () => {
       );
       setProfile(data);
     } catch (e) {
-console.log("this error")
+      console.log('this error');
       console.log(e);
     }
   };
@@ -733,7 +728,7 @@ console.log("this error")
                 onChange={onChangeHandler}
                 value={comment}
               ></input>
-              <button className='comment_button'>Submit</button>
+              <button className="comment_button">Submit</button>
             </div>
           </form>
         </div>
