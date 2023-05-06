@@ -26,7 +26,7 @@ const RegisterPage = () => {
     console.log('submit button clicked');
     try {
       const { res } = await axios.post(
-        'http://localhost:8000/auth/register/',
+        `${API_URL}/auth/register/`,
         formData
       );
       console.log(res);

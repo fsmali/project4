@@ -2,6 +2,7 @@ import { useState } from 'react';
 import '../login_page/login.scss'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API_URL } from '../../consts';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const LoginPage = () => {
 
     try {
       const {data} = await axios.post(
-        'http://localhost:8000/auth/login/',
+        `${API_URL}/auth/login/`,
         formData
       );
       console.log(data)

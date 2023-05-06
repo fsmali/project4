@@ -67,7 +67,7 @@ const ProfilePage = () => {
 
   const editSkill = async () => {
     try {
-      const res = await axios.put(`http://localhost:8000/skills/${skillsid}/`, {
+      const res = await axios.put(`${API_URL}/skills/${skillsid}/`, {
         skill: skills,
       });
 
@@ -92,7 +92,7 @@ const ProfilePage = () => {
   const editProject = async () => {
     try {
       const res = await axios.put(
-        `http://localhost:8000/projects/${projectsId}/`,
+        `${API_URL}/projects/${projectsId}/`,
         {
           project_name: projects,
           description: description,

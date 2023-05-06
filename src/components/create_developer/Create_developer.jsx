@@ -49,7 +49,7 @@ const CreateDeveloper = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:8000/skills/', {
+      const res = await axios.post(`${ API_URL}/skills/`, {
         skill: newSkill,
       });
       console.log(res);
@@ -77,7 +77,7 @@ const CreateDeveloper = () => {
   const handleProjectSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:8000/projects/', {
+      const res = await axios.post(`${API_URL}/skills/${skillsid}/`, {
         project_name: newProjectsName,
         description: newProjectsDescription,
         source_link: newProjectsSource,
